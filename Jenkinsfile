@@ -4,12 +4,13 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building..'
-        bat(script: 'build', returnStatus: true, returnStdout: true)
+        bat(mvn clean install, returnStatus: true, returnStdout: true)
       }
     }
     stage('Test') {
       steps {
         echo 'Testing..'
+		bat (mvn test)
       }
     }
     stage('Deploy') {
