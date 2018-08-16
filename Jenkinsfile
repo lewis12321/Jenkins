@@ -3,12 +3,12 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo bat(script: 'build.bat', returnStatus: true, returnStdout: true)
+        bat(script: 'build.bat', returnStatus: true)
       }
     }
     stage('Test') {
       steps {
-        echo bat(script: 'test.bat', returnStdout: true, returnStatus: true)
+        bat(script: 'test.bat', returnStdout: true)
       }
     }
     stage('Deploy') {
