@@ -4,11 +4,13 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building....'
+        bat(script: 'build.bat', returnStatus: true, returnStdout: true)
       }
     }
     stage('Test') {
       steps {
-		echo 'Testing....'
+        echo 'Testing....'
+        bat(script: 'test.bat', returnStdout: true, returnStatus: true)
       }
     }
     stage('Deploy') {
