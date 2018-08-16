@@ -11,9 +11,9 @@ pipeline {
         bat(script: 'test.bat', returnStatus: true)
       }
     }
-    stage('Deploy') {
+    stage('Complete') {
       steps {
-        echo 'Deploying....'
+        emailext(attachLog: true, compressLog: true, mimeType: 'text/plain', from: 'development@ianwilliams.co.uk', subject: 'Build Complete', body: 'Look at the logs.', replyTo: 'lewis.jefferies@ianwilliams.co.uk', to: 'lewis.jefferies@ianwilliams.co.uk,peter.wise@ianwilliams.co.uk')
       }
     }
   }
